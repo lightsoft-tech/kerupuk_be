@@ -14,7 +14,10 @@ class ExpenditureController extends Controller
      */
     public function index()
     {
-        //
+        $expenditure = Expenditures::latest();
+        return view('dashboard.rekapitulasi.pengeluaran.index', [
+            'expenditures' => $expenditure->get()
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class ExpenditureController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.rekapitulasi.pengeluaran.add');
     }
 
     /**
@@ -43,7 +46,7 @@ class ExpenditureController extends Controller
 
         Expenditures::create($validate);
 
-        // return redirect();
+        return redirect('/admin/expenditures');
     }
 
     /**
@@ -100,5 +103,7 @@ class ExpenditureController extends Controller
     public function destroy($id)
     {
         Expenditures::destroy($id);
+
+        return redirect('/admin/expenditures');
     }
 }

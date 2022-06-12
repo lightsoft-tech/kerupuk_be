@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produks;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class ProdukController extends Controller
 {
@@ -14,7 +15,10 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        //
+        $produk = Produks::latest();
+        return view('dashboard.produk.index', [
+            'produks' => $produk->get()
+        ]);
     }
 
     /**
@@ -40,12 +44,24 @@ class ProdukController extends Controller
             'price' => 'required',
             'description' => 'required',
             'stock' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|file',
         ]);
 
+        // upload image
+        $date = date('H-i-s');
+        $random = \Str::random(5);
+        $image = request('image');
+        $path = public_path("upload/produks/" . $date . $random . $image);
+        try {
+            unlink($path);
+        } catch (\Throwable $th) {
+        } finally {
+            $request->file('image')->move('upload/produks/', $date . $random . $request->file('image')->getClientOriginalName());
+            $validate['image'] = $date . $random . $request->file('image')->getClientOriginalName();
+        }
         Produks::create($validate);
 
-        // retrun redirect()
+        return redirect('/admin/produk');
     }
 
     /**
@@ -84,11 +100,23 @@ class ProdukController extends Controller
             'price' => 'required',
             'description' => 'required',
             'stock' => 'required',
-            'image' => 'required',
+            'image' => 'required|image|file',
         ];
 
         $validateData = $request->validate($rules);
 
+        // update image
+        $date = date('H-i-s');
+        $random = \Str::random(5);
+        $produk = Produks::findOrFail($id);
+        $path = public_path("upload/produks/" . $produk->image);
+        try {
+            unlink($path);
+        } catch (\Throwable $th) {
+        } finally {
+            $request->file('image')->move('upload/produks/', $date . $random . $request->file('image')->getClientOriginalName());
+            $rules['image'] = $date . $random . $request->file('image')->getClientOriginalName();
+        }
         Produks::where('id', $id)
                 ->update($validateData);
 
@@ -103,8 +131,11 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
+        $produk = Produks::findOrFail($id);
+        $path = public_path("upload/produks/" . $produk->image);
+        unlink($path);
         Produks::destroy($id);
 
-        // return redirect()
+        return redirect('/admin/produk');
     }
 }

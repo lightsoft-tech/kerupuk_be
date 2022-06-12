@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Incomes;
+use App\Models\Produks;
 use Illuminate\Http\Request;
 
 class IncomeController extends Controller
@@ -14,7 +15,15 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        //
+        $income = Incomes::join('produks', 'produks.id', '=', 'incomes.produk_id')
+                            ->latest('incomes.created_at');
+        return view('dashboard.rekapitulasi.pendapatan.index', [
+            'incomes' => $income->get(['produks.name_produk',
+                                        'produks.price',
+                                        'incomes.quantity',
+                                        'incomes.date'
+            ])
+        ]);
     }
 
     /**
@@ -24,7 +33,10 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        //
+        $produk = Produks::latest();
+        return view('dashboard.rekapitulasi.pendapatan.add', [
+            'produks' => $produk->get()
+        ]);
     }
 
     /**
@@ -43,7 +55,7 @@ class IncomeController extends Controller
 
         Incomes::create($validate);
 
-        // return redirect();
+        return redirect('/admin/incomes');
     }
 
     /**
