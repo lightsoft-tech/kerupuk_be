@@ -1,0 +1,44 @@
+h1 {
+  font-family: poppins-bold !important;
+}
+
+h2 {
+  font-family: poppins-semi-bold !important;
+}
+
+.border-radius {
+  border-radius: 25px;
+}
+
+.btn-product {
+  font-family: poppins-semi-bold;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--secondary_variant);
+  text-transform: uppercase;
+
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  background: var(--primary);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  cursor: pointer;
+  opacity: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.btn-product:hover {
+  opacity: 0.8;
+  color: var(--secondary_variant);
+}
