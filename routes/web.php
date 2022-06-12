@@ -27,7 +27,7 @@ Route::get('/produk', function () {
 Auth::routes();
 
 Route::get('/admin', function () {
-    return view('dashboard.index');
+    return view('dashboard.homepage.index');
 });
 
 // Auth::routes();
