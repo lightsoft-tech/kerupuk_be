@@ -44,10 +44,13 @@
                             <a class="nav-link" href="/home">Home</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Product</a>
+                            <a class="nav-link" href="/produk">Product</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/admin">Dashboard</a>
                         </li>
                     </ul>
                 <div class="navbar-nav form-inline my-2 my-lg-0">
@@ -141,9 +144,22 @@
             </div>
         </nav> --}}
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
+
+        <footer class="text-center text-lg-start text-muted bg-primary-theme mt-5 pb-0">
+            <div class="py-3 ">
+              <img class="pr-2" src="./images/instagram.svg" alt="" srcset="">
+              <img class="pl-2" src="./images/whatsapp.svg" alt="" srcset="">
+            </div>
+
+            <p class="footer-theme pb-3 mb-0">
+              © 2022 PPL AGRO F-6
+            </p>
+
+            </div>
+        </footer>
     </div>
 {{-- script --}}
 

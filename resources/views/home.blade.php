@@ -2,22 +2,64 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-md-5 m-auto">
+        <h1 class="color-theme-primary">KERUPUKTENGIRI.COM</h1>
+        <p class="txt1">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus perspiciatis aperiam et nemo voluptate
+          magni laborum debitis quo nisi. Ab aliquid aut distinctio perspiciatis est modi placeat alias facilis ea!
+        </p>
+      </div>
+      <div class="col-md-7">
+        <img src="./images/kerupuk_tenggiri_header.png" class="img-fluid" alt="tenggiri">
+      </div>
     </div>
-</div>
+
+    <div class="row my-3">
+      <div class="col-md-12">
+        <h1 class="text-center color-theme-primary">Produk Kami</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 d-flex justify-content-center">
+        <img class="border-radius " src="./images/kerupuk_tenggiri_1.png" alt="" srcset="">
+      </div>
+      <div class="col-md-4 d-flex justify-content-center">
+        <img class="border-radius " src="./images/kerupuk_tenggiri_1.png" alt="" srcset="">
+      </div>
+      <div class="col-md-4 d-flex justify-content-center">
+        <img class="border-radius " src="./images/kerupuk_tenggiri_1.png" alt="" srcset="">
+      </div>
+    </div>
+
+    <div class="row py-5">
+      <div class="col-md-12">
+        <a href="login.html" class="btn-product flex mx-auto">Produk Lain</a>
+      </div>
+    </div>
+
+    <div class="row py-5">
+      <div class="col-md-12">
+        <h2 class="text-center color-theme-primary">Rekomendasi Penyajian</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 d-flex justify-content-center">
+        <img class="border-radius " src="./images/kerupuk_bunder.png" alt="" srcset="">
+      </div>
+      <div class="col-md-6 d-flex justify-content-center">
+        <img class="border-radius " src="./images/kerupuk_gepeng.png" alt="" srcset="">
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6 d-flex justify-content-center">
+        <img class="border-radius " src="./images/kerupuk_gepeng.png" alt="" srcset="">
+      </div>
+      <div class="col-md-6 d-flex justify-content-center">
+        <img class="border-radius " src="./images/kerupuk_bunder.png" alt="" srcset="">
+      </div>
+    </div>
+  </div>
 @endsection

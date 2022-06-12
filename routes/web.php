@@ -19,9 +19,16 @@ Route::get('/', function () {
     return view('layouts.app');
 });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/produk', function () {
+    return view('produk');
+});
+Auth::routes();
+
+Route::get('/admin', function () {
+    return view('dashboard.index');
+});
 
 // Auth::routes();
 
@@ -29,6 +36,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // produks
 Route::group(['middleware' => ['auth', 'role:admin']], function() {
+    // Route::get('/admin', 'AdminController@index');
     Route::get('/produks', 'ProdukController@index');
     Route::get('produks/create', 'ProdukController@create');
     Route::post('produks', 'ProdukController@store');
