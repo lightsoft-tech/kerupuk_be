@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Incomes;
 use App\Models\Produks;
+use App\Models\Expenditures;
 use Illuminate\Http\Request;
 
 class IncomeController extends Controller
@@ -15,19 +16,34 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        $income = Incomes::select([\DB::raw('(produks.price * incomes.quantity) as totalPrice'),
-                            'produks.name_produk',
-                            'produks.price',
-                            'incomes.id',
-                            'incomes.quantity',
-                            'incomes.date'])
-                            ->join('produks', 'produks.id', '=', 'incomes.produk_id')
-                            ->latest('incomes.created_at');
+        $income = Incomes::select([
+            \DB::raw('(produks.price * incomes.quantity) as totalPrice'),
+            'produks.name_produk',
+            'produks.price',
+            'incomes.id',
+            'incomes.quantity',
+            'incomes.date'
+        ])
+            ->join('produks', 'produks.id', '=', 'incomes.produk_id')
+            ->latest('incomes.created_at');
         // $incomeTotal = Incomes::select([\DB::raw('(sum(produks.price * incomes.quantity) as total)')])
         //                         ->join('produks', 'produks.id', '=', 'incomes.produk_id')
         //                         ->groupBy(\DB::raw('Month(incomes.date)'));
+        // $totalExpenditures = Expenditures::sum('cost');
+        // $totalIncome = Incomes::with('produk')->sum('quantity * produk.price');
+
+        $totalIncome = Incomes::select(\DB::raw('SUM(produks.price *incomes.quantity ) As total'))
+            ->join('produks', 'produks.id', '=', 'incomes.produk_id')
+            ->get();
+
+        // return response()->json([
+        //     $totalIncome
+        // ], 200);
+
         return view('dashboard.rekapitulasi.pendapatan.index', [
             'incomes' => $income->get(),
+            'total' => $totalIncome,
+
             // 'incomeTotals' =>$incomeTotal->get()
         ]);
     }
@@ -85,10 +101,10 @@ class IncomeController extends Controller
     {
         $produk = Produks::latest();
         $income = Incomes::join('produks', 'produks.id', '=', 'incomes.produk_id')
-                            ->find($id);
+            ->find($id);
         return view('dashboard.rekapitulasi.pendapatan.edit', compact('income'), [
-        'produks' => $produk->get()
-    ]);
+            'produks' => $produk->get()
+        ]);
     }
 
     /**
@@ -109,7 +125,7 @@ class IncomeController extends Controller
         $validateData = $request->validate($rules);
 
         Incomes::where('id', $id)
-                ->update($validateData);
+            ->update($validateData);
 
         // return redirect();
     }

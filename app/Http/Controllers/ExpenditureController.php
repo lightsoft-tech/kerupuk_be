@@ -15,8 +15,10 @@ class ExpenditureController extends Controller
     public function index()
     {
         $expenditure = Expenditures::latest();
+        $totalExpenditures = Expenditures::sum('cost');
         return view('dashboard.rekapitulasi.pengeluaran.index', [
-            'expenditures' => $expenditure->get()
+            'expenditures' => $expenditure->get(),
+            'totalExpenditures' => $totalExpenditures
         ]);
     }
 
@@ -91,7 +93,7 @@ class ExpenditureController extends Controller
         $validateData = $request->validate($rules);
 
         Expenditures::where('id', $id)
-                ->update($validateData);
+            ->update($validateData);
 
         // return redirect();
     }

@@ -159,8 +159,8 @@
 
         <footer class="text-center text-lg-start text-muted bg-primary-theme mt-5 pb-0">
             <div class="py-3 ">
-              <img class="pr-2" src="./images/instagram.svg" alt="" srcset="">
-              <img class="pl-2" src="./images/whatsapp.svg" alt="" srcset="">
+              <img class="pr-2" src="{{ asset('./images/instagram.svg') }}" alt="" srcset="">
+              <img class="pl-2" src="{{ asset('./images/whatsapp.svg') }}" alt="" srcset="">
             </div>
 
             <p class="footer-theme pb-3 mb-0">
@@ -171,6 +171,8 @@
         </footer>
     </div>
 {{-- script --}}
+
+@yield('script')
 
 </body>
 </html>

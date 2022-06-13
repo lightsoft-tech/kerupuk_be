@@ -70,10 +70,10 @@
     </table>
 
     <h2 class="mt-5">
-      Total Pendapatan Periode Mei 2022 :
+      Total Pendapatan :
     </h2>
     <h2>
-      Rp. 130.000
+      Rp. {{ $total[0]->total }}
     </h2>
   </div>
 </div>

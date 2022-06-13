@@ -25,7 +25,7 @@
     <div class="row">
         @foreach ($produkHomes as $produkHome)
             <div class="col-md-4 d-flex justify-content-center">
-                <img class="border-radius " src="{{ asset('/upload/home/'. $produkHome->image_produk) }}" alt="" srcset="">
+                <img class="border-radius img-fluid" src="{{ asset('/upload/home/'. $produkHome->image_produk) }}" alt="" srcset="">
             </div>
         @endforeach
     </div>
@@ -45,7 +45,7 @@
     <div class="row">
         @foreach ($suggestionHomes as $suggestionHome)
             <div class="col-md-6 d-flex justify-content-center">
-                <img class="border-radius " src="{{ asset('upload/home/'. $suggestionHome->image_suggestion) }}" alt="" srcset="">
+                <img class="border-radius img-fluid" src="{{ asset('upload/home/'. $suggestionHome->image_suggestion) }}" alt="" srcset="">
             </div>
         @endforeach
     </div>

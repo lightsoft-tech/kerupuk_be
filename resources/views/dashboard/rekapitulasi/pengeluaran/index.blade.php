@@ -84,10 +84,10 @@
     </table>
 
     <h2 class="mt-5">
-      Total Pengeluaran Periode Mei 2022 :
+      Total Pengeluaran :
     </h2>
     <h2>
-      Rp. 380.000
+      Rp. {{ $totalExpenditures }}
     </h2>
   </div>
 </div>

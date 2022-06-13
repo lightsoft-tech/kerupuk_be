@@ -26,23 +26,23 @@
   <div class="container mt-4">
     <div class="row">
         @foreach ($produks as $produk)
-        <a href="/produk-detail/{{ $produk->id }}">
-            <div class="col-md-3 mb-4">
+        <div  class="col-md-3 mb-4">
+            <a style="text-decoration: none !important" href="/produk-detail/{{ $produk->id }}">
                 <div class="card">
                     <img src="{{ asset('upload/produks/' . $produk->image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <p class="card-text">{{ $produk->name_produk }}</p>
-                    <h5 class="card-title">{{ $produk->price }}</h5>
+                    <p style="color: black" class="card-text">{{ $produk->name_produk }}</p>
+                    <h5 style="color: black" class="card-title">{{ $produk->price }}</h5>
                     <div class="d-flex">
                         <img src="./images/star.svg" alt="" srcset="">
-                        <p class="my-auto ml-1">
+                        <p style="color: black" class="my-auto ml-1 txt1">
                         | terjual 750+
                         </p>
                     </div>
                     </div>
                 </div>
-            </div>
-        </a>
+              </a>
+          </div>
         @endforeach
     </div>
   </div>

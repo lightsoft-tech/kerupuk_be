@@ -44,6 +44,10 @@ a {
     -moz-transition: all 0.4s;
 }
 
+button {
+    border: none;
+}
+
 a:hover {
     text-decoration: none !important;
 }
