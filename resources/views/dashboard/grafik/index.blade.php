@@ -1,7 +1,7 @@
 @extends('layouts.main_dashboard')
 
 @section('content')
-<div class="container">
+<div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="row">
         <div class="col-md-6"><div id="income"></div></div>
         <div class="col-md-6"><div id="expenditure"></div></div>

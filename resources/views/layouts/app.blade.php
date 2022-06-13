@@ -51,9 +51,12 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#">About</a>
                         </li>
+                        @if (Auth::user()->admin)
                         <li class="nav-item active">
                             <a class="nav-link" href="/admin">Dashboard</a>
                         </li>
+                        @endif
+
                     </ul>
                 <div class="navbar-nav form-inline my-2 my-lg-0">
                     {{-- <a href="login.html" class="btn-theme my-2 my-sm-0" type="submit">Login</a> --}}

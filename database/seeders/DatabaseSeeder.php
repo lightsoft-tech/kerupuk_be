@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DescriptionHome;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+        DescriptionHome::create([
+            'description_home' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas laboriosam magnam pariatur necessitatibus, ex assumenda veniam nostrum hic quaerat laudantium fuga. Ex perspiciatis maxime nesciunt? Sequi corrupti iusto vel nam.
+            Culpa enim assumenda eius illo ipsam? Repellat aperiam ratione error? Corrupti nostrum impedit ipsam eos, minima atque! Sed at, consequatur, dolor sint recusandae harum iusto ratione provident eius qui inventore."
+        ]);
+
         Role::create([
             'name' => 'admin',
             'guard_name' => 'web',
