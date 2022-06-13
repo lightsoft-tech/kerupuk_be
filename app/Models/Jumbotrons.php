@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Jumbotrons extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
 }

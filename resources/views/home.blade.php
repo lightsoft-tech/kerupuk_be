@@ -6,10 +6,11 @@
     <div class="row">
       <div class="col-md-5 m-auto">
         <h1 class="color-theme-primary">KERUPUKTENGIRI.COM</h1>
-        <p class="txt1">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus perspiciatis aperiam et nemo voluptate
-          magni laborum debitis quo nisi. Ab aliquid aut distinctio perspiciatis est modi placeat alias facilis ea!
-        </p>
+        @foreach ($descriptions as $description)
+            <p class="txt1">
+                {{ $description->description_home }}
+            </p>
+        @endforeach
       </div>
       <div class="col-md-7">
         <img src="./images/kerupuk_tenggiri_header.png" class="img-fluid" alt="tenggiri">

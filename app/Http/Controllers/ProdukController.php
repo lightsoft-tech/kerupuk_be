@@ -28,7 +28,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.produk.add');
     }
 
     /**

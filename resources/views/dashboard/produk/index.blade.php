@@ -5,7 +5,7 @@
 <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
   <div class="d-flex justify-content-end">
-    <a href="/admin/produk-add" class="btn-product">
+    <a href="/admin/produk-create" class="btn-product">
       <div class="mr-2">
         Add
       </div>
