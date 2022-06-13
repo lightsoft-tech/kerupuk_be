@@ -128,13 +128,15 @@
       </h5>
       <textarea style="height: 182px !important" class="input100" id="exampleFormControlTextarea1" rows="8"></textarea>
     </div>
-    <div class="col-md-4">
+  </div>
+  <div class="row">
+    <div class="col-md-3">
       <h5 class="color-theme-primary">
         Image
       </h5>
       <div class="file-upload">
-        <div class="image-upload-wrap">
-          <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+        <div id="image-upload-wrap" class="image-upload-wrap">
+          <input id="file-upload-image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
           <div class="drag-text">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  width="60" height="60" fill="#4E944F" >
               <path d="M194.6 32H317.4C338.1 32 356.4 45.22 362.9 64.82L373.3 96H448C483.3 96 512 124.7 512 160V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V160C0 124.7 28.65 96 64 96H138.7L149.1 64.82C155.6 45.22 173.9 32 194.6 32H194.6zM256 384C309 384 352 341 352 288C352 234.1 309 192 256 192C202.1 192 160 234.1 160 288C160 341 202.1 384 256 384z"/>
@@ -142,15 +144,16 @@
             <h5>Drag and drop a file or select add Image</h5>
           </div>
         </div>
-        <div class="file-upload-content">
-          <img class="file-upload-image" src="#" alt="your image" />
+        <div id="file-upload-content" class="file-upload-content">
+          <img id="file-upload-image" class="file-upload-image" src="#" alt="your image" />
           <div class="image-title-wrap">
-            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span id="image-title" class="image-title">Uploaded Image</span></button>
           </div>
         </div>
       </div>
-      <button type="submit" class="btn-product mt-4" style="border: none">Simpan</button>
+    <button type="submit" class="btn-product mt-4" style="border: none">Simpan</button>
     </div>
+
   </div>
 </div>
 @endsection
@@ -159,20 +162,14 @@
   <script>
     function readURL(input) {
       if (input.files && input.files[0]) {
-
         var reader = new FileReader();
-
         reader.onload = function(e) {
           $('.image-upload-wrap').hide();
-
           $('.file-upload-image').attr('src', e.target.result);
           $('.file-upload-content').show();
-
           $('.image-title').html(input.files[0].name);
         };
-
         reader.readAsDataURL(input.files[0]);
-
       } else {
         removeUpload();
       }
