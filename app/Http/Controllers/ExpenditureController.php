@@ -68,7 +68,9 @@ class ExpenditureController extends Controller
      */
     public function edit($id)
     {
-        //
+        $expenditure = Expenditures::find($id);
+
+        return view('dashboard.rekapitulasi.pengeluaran.edit', compact('expenditure'));
     }
 
     /**

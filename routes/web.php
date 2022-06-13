@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
-
+// Route::get('/', function () {
+//     return view('layouts.app');
+// });
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -27,6 +27,11 @@ Auth::routes();
 Route::get('/admin', function () {
     return view('dashboard.homepage.index');
 });
+
+// Route::get('/produk', function () {
+//     return view('produk');
+// });
+Route::get('/produk', [App\Http\Controllers\ProdukController::class, 'indexProduk']);
 
 Route::get('/profile', function () {
     return view('profile');
@@ -62,7 +67,7 @@ Route::get('/admin/grafik', function () {
     return view('dashboard.grafik.index');
 });
 
-
+Route::get('/admin/grafik', [App\Http\Controllers\GrafikController::class, 'grafik']);
 
 // homepage setting
 Route::group(['middleware' => ['auth', 'role:admin']], function() {

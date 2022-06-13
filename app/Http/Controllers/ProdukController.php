@@ -83,7 +83,8 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produk = Produks::find($id);
+        return view('dashboard.produk.edit', compact('produk'));
     }
 
     /**
@@ -137,5 +138,14 @@ class ProdukController extends Controller
         Produks::destroy($id);
 
         return redirect('/admin/produk');
+    }
+
+    public function indexproduk()
+    {
+        $produk = Produks::latest();
+
+        return view('produk', [
+            'produks' => $produk->get()
+        ]);
     }
 }

@@ -15,14 +15,20 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        $income = Incomes::join('produks', 'produks.id', '=', 'incomes.produk_id')
+        $income = Incomes::select([\DB::raw('(produks.price * incomes.quantity) as totalPrice'),
+                            'produks.name_produk',
+                            'produks.price',
+                            'incomes.id',
+                            'incomes.quantity',
+                            'incomes.date'])
+                            ->join('produks', 'produks.id', '=', 'incomes.produk_id')
                             ->latest('incomes.created_at');
+        // $incomeTotal = Incomes::select([\DB::raw('(sum(produks.price * incomes.quantity) as total)')])
+        //                         ->join('produks', 'produks.id', '=', 'incomes.produk_id')
+        //                         ->groupBy(\DB::raw('Month(incomes.date)'));
         return view('dashboard.rekapitulasi.pendapatan.index', [
-            'incomes' => $income->get(['produks.name_produk',
-                                        'produks.price',
-                                        'incomes.quantity',
-                                        'incomes.date'
-            ])
+            'incomes' => $income->get(),
+            // 'incomeTotals' =>$incomeTotal->get()
         ]);
     }
 
@@ -77,7 +83,12 @@ class IncomeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produk = Produks::latest();
+        $income = Incomes::join('produks', 'produks.id', '=', 'incomes.produk_id')
+                            ->find($id);
+        return view('dashboard.rekapitulasi.pendapatan.edit', compact('income'), [
+        'produks' => $produk->get()
+    ]);
     }
 
     /**

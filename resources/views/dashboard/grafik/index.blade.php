@@ -1,17 +1,25 @@
 @extends('layouts.main_dashboard')
 
 @section('content')
-<div class="row">
-    <div class="col-6"></div>
-    <div class="col-6"><div id="container">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6"><div id="income"></div></div>
+        <div class="col-md-6"><div id="expenditure"></div></div>
+    </div>
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
 </div>
 @endsection
 
 
 @section('script')
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    {{-- grafik pendapatan --}}
     <script>
-        Highcharts.chart('container', {
+        Highcharts.chart('income', {
         chart: {
             type: 'column'
         },
@@ -19,20 +27,7 @@
             text: 'Grafik Pendapatan'
         },
         xAxis: {
-            categories: [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
-            ],
+            categories: {!! json_encode($bulans) !!},
             crosshair: true
         },
         yAxis: {
@@ -57,7 +52,46 @@
         },
         series: [{
             name: 'Omset',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            data: {!! json_encode($totals) !!}
+        }]
+    });
+    </script>
+    {{-- grafik pengeluaran --}}
+    <script>
+        Highcharts.chart('expenditure', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Grafik Pengeluaran'
+        },
+        xAxis: {
+            categories: {!! json_encode($bulanExpenditures) !!},
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Expenditure (Rp)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>Rp. {point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Expenditure',
+            data: {!! json_encode($totalExpenditures) !!}
         }]
     });
     </script>
