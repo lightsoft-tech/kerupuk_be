@@ -26,9 +26,9 @@
   <div class="container mt-4">
     <div class="row">
         @foreach ($produks as $produk)
+        <a href="/produk-detail/{{ $produk->id }}">
             <div class="col-md-3 mb-4">
                 <div class="card">
-                    {{-- <img src="./images/kerupuk_tenggiri_mangkok.png" class="card-img-top" alt="..."> --}}
                     <img src="{{ asset('upload/produks/' . $produk->image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                     <p class="card-text">{{ $produk->name_produk }}</p>
@@ -42,68 +42,8 @@
                     </div>
                 </div>
             </div>
+        </a>
         @endforeach
-      {{-- <div class="col-md-3 mb-4">
-        <div class="card">
-          <img src="./images/kerupuk_tenggiri_mangkok.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Kerupuk Tengiri Pedas</p>
-            <h5 class="card-title">Rp 10.000</h5>
-            <div class="d-flex">
-              <img src="./images/star.svg" alt="" srcset="">
-              <p class="my-auto ml-1">
-                | terjual 750+
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card">
-          <img src="./images/kerupuk_tenggiri_mangkok.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Kerupuk Tengiri Pedas</p>
-            <h5 class="card-title">Rp 10.000</h5>
-            <div class="d-flex">
-              <img src="./images/star.svg" alt="" srcset="">
-              <p class="my-auto ml-1">
-                | terjual 750+
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card">
-          <img src="./images/kerupuk_tenggiri_mangkok.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Kerupuk Tengiri Pedas</p>
-            <h5 class="card-title">Rp 10.000</h5>
-            <div class="d-flex">
-              <img src="./images/star.svg" alt="" srcset="">
-              <p class="my-auto ml-1">
-                | terjual 750+
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-4">
-        <div class="card">
-          <img src="./images/kerupuk_tenggiri_mangkok.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Kerupuk Tengiri Pedas</p>
-            <h5 class="card-title">Rp 10.000</h5>
-            <div class="d-flex">
-              <img src="./images/star.svg" alt="" srcset="">
-              <p class="my-auto ml-1">
-                | terjual 750+
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> --}}
-
     </div>
   </div>
 @endsection

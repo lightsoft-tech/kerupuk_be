@@ -51,11 +51,11 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#">About</a>
                         </li>
-                        @if (Auth::user()->admin)
+                        @hasrole('admin')
                         <li class="nav-item active">
                             <a class="nav-link" href="/admin">Dashboard</a>
                         </li>
-                        @endif
+                        @endhasrole
 
                     </ul>
                 <div class="navbar-nav form-inline my-2 my-lg-0">
@@ -80,7 +80,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="profile">
+                                <a class="dropdown-item" href="profile/{{ Auth::user()->id }}">
                                       <p>Profile</p>
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"

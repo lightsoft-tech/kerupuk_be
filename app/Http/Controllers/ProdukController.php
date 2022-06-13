@@ -121,7 +121,7 @@ class ProdukController extends Controller
         Produks::where('id', $id)
                 ->update($validateData);
 
-        // return redirect()
+        return redirect('/admin/produk');
     }
 
     /**
@@ -147,5 +147,11 @@ class ProdukController extends Controller
         return view('produk', [
             'produks' => $produk->get()
         ]);
+    }
+    public function showProduk($id)
+    {
+        $produk = Produks::find($id);
+
+        return view('detail', compact('produk'));
     }
 }

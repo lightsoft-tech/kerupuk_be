@@ -3,6 +3,7 @@
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,15 +27,20 @@ Auth::routes();
 
 Route::get('/produk', [App\Http\Controllers\ProdukController::class, 'indexProduk']);
 
-Route::get('/profile', function () {
-    return view('profile');
+// Route::get('/profile', function () {
+//     return view('profile');
+// });
+
+// Route::get('/detail', function () {
+//     return view('detail');
+// });
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/profile/{id}', [App\Http\Controllers\UserController::class, 'edit']);
+    Route::put('/profile-update/{id}', [App\Http\Controllers\UserController::class, 'update']);
+    Route::get('/produk-detail/{id}', [App\Http\Controllers\ProdukController::class, 'showProduk']);
 });
-
-Route::get('/detail', function () {
-    return view('detail');
-});
-
-
 
 Route::get('/admin/grafik', [App\Http\Controllers\GrafikController::class, 'grafik']);
 

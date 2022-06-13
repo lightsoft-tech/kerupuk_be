@@ -5,14 +5,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 py-3">
-      <img src="./images/kerupuk_tenggiri_1.png" class="img-fluid w-100 border-radius" alt="Responsive image">
+      <img src="{{ asset('upload/produks/'. $produk->image) }}" class="img-fluid w-100 border-radius" alt="Responsive image">
     </div>
     <div class="col-md-7 d-flex flex-column justify-content-center">
-      <h2 class="card-text">Kerupuk Tengiri Pedas</h2>
-      <h1 class="card-text my-3 color-theme-primary">Rp. 10.000</h1>
+      <h2 class="card-text">{{ $produk->name_produk }}</h2>
+      <h1 class="card-text my-3 color-theme-primary">Rp. {{ $produk->price }}</h1>
       <p class="txt1">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus perspiciatis aperiam et nemo voluptate
-        magni laborum debitis quo nisi. Ab aliquid aut distinctio perspiciatis est modi placeat alias facilis ea!
+        {{ $produk->description }}
       </p>
       <h5 class="color-theme-primary">
         Varian

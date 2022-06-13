@@ -41,7 +41,9 @@
 <div class="limiter bg-profile-1">
   <div class="bg-profile-2 profile-custom container-login100" style="background-color: transparent !important;">
     <div class="card-custom" style="padding: 2rem; background-color: #fff !important; width: inherit;">
-      <form class="validate-form">
+      <form class="validate-form" action="/profile-update/{{ $user->id }}" method="POST">
+        @method('put')
+        @csrf
         <img class="profile-img d-flex m-auto" src="{{ asset('images/profile.png') }}" alt="" srcset="">
 
         <div class="my-3 mx-auto">
@@ -52,30 +54,57 @@
         </div>
 
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="text" name="username" placeholder="Nama lengkap">
+            <input class="input100 @error('name') is-invalid @enderror" type="text" name="name" value="{{ $user->name }}" placeholder="Nama lengkap">
+            @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="text" name="pass" placeholder="Alamat">
+            <input class="input100 @error('address') is-invalid @enderror" type="text" name="address" value="{{ $user->address }}" placeholder="Alamat">
+            @error('address')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="text" name="pass" placeholder="Email">
+            <input class="input100 @error('email') is-invalid @enderror" type="email" name="email" value="{{ $user->email }}" placeholder="Email">
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="text" name="pass" placeholder="Nomor HP">
+            <input class="input100 @error('phone_number') is-invalid @enderror" type="number" name="phone_number" value="{{ $user->phone_number }}" placeholder="Nomor HP">
+            @error('phone_number')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="date" name="pass" placeholder="Tanggal lahir">
+            <input class="input100 @error('birthday') is-invalid @enderror" type="date" name="birthday" value="{{ $user->birthday }}" placeholder="Tanggal lahir">
+            @error('birthday')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="password" name="pass" placeholder="Password">
+          <input class="input100" type="password" name="password" placeholder="Password">
         </div>
+        <div class="wrap-input100 validate-input">
+            <input class="input100" type="password" name="password_confirmation" placeholder="Password_confirmation">
+          </div>
 
         <div class="container-login100-form-btn">
-          <button class="login100-form-btn">
+          <button type="submit" class="login100-form-btn">
             Simpan
           </button>
         </div>
-
       </form>
     </div>
   </div>

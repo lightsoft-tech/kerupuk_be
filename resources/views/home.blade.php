@@ -23,20 +23,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 d-flex justify-content-center">
-        <img class="border-radius " src="./images/kerupuk_tenggiri_1.png" alt="" srcset="">
-      </div>
-      <div class="col-md-4 d-flex justify-content-center">
-        <img class="border-radius " src="./images/kerupuk_tenggiri_1.png" alt="" srcset="">
-      </div>
-      <div class="col-md-4 d-flex justify-content-center">
-        <img class="border-radius " src="./images/kerupuk_tenggiri_1.png" alt="" srcset="">
-      </div>
+        @foreach ($produkHomes as $produkHome)
+            <div class="col-md-4 d-flex justify-content-center">
+                <img class="border-radius " src="{{ asset('/upload/home/'. $produkHome->image_produk) }}" alt="" srcset="">
+            </div>
+        @endforeach
     </div>
 
     <div class="row py-5">
       <div class="col-md-12">
-        <a href="login.html" class="btn-product flex mx-auto">Produk Lain</a>
+        <a href="/produk" class="btn-product flex mx-auto">Produk Lain</a>
       </div>
     </div>
 
@@ -47,20 +43,11 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6 d-flex justify-content-center">
-        <img class="border-radius " src="./images/kerupuk_bunder.png" alt="" srcset="">
-      </div>
-      <div class="col-md-6 d-flex justify-content-center">
-        <img class="border-radius " src="./images/kerupuk_gepeng.png" alt="" srcset="">
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-6 d-flex justify-content-center">
-        <img class="border-radius " src="./images/kerupuk_gepeng.png" alt="" srcset="">
-      </div>
-      <div class="col-md-6 d-flex justify-content-center">
-        <img class="border-radius " src="./images/kerupuk_bunder.png" alt="" srcset="">
-      </div>
+        @foreach ($suggestionHomes as $suggestionHome)
+            <div class="col-md-6 d-flex justify-content-center">
+                <img class="border-radius " src="{{ asset('upload/home/'. $suggestionHome->image_suggestion) }}" alt="" srcset="">
+            </div>
+        @endforeach
     </div>
   </div>
 @endsection
