@@ -36,7 +36,7 @@
 
       <div class="d-flex justify-content-end">
         <a href="" id="tombol-pesan" class="btn-product ">Pesan Sekarang</a>
-        <a href="login.html" class="btn-product ml-3" style="
+        <a href="/produk" class="btn-product ml-3" style="
             color: var(--primary);
             background-color:var(--secondary_variant)
           ">Batal</a>

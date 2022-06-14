@@ -97,17 +97,6 @@ class HomeController extends Controller
 
         return redirect('/admin');
     }
-    // public function updateJumbotron(Request $request, $id)
-    // {
-    //     $rules = [
-    //         'image_jumbotron' => 'image',
-    //     ];
-
-    //     $validateData = $request->validate($rules);
-
-    //     DescriptionHome::where('id', $id)
-    //             ->update($validateData);
-    // }
     public function destroyJumbotron($id)
     {
         $jumbotron = Jumbotrons::findOrFail($id);
