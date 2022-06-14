@@ -70,7 +70,6 @@ class DatabaseSeeder extends Seeder
             'phone_number' => '-',
             'address' => '-',
             'password' => bcrypt('admin123'),
-            'remember_token' => \Str::random(60),
             'created_at' => now(),
             'updated_at' => now()
         ]);

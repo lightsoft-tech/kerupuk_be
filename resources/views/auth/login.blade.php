@@ -81,8 +81,8 @@
                 </span>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100 @error('username') is-invalid @enderror" type="text" placeholder="Username"  name="username" value="{{ old('username') }}" required autocomplete="username">
-                    @error('username')
+                    <input class="input100 @error('email') is-invalid @enderror" type="email" placeholder="email"  name="email" value="{{ old('email') }}" required autocomplete="email">
+                    @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
