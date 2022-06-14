@@ -33,7 +33,7 @@
         yAxis: {
             min: 0,
             title: {
-                text: 'Omset (Rp)'
+                text: 'Income (Rp)'
             }
         },
         tooltip: {
@@ -51,7 +51,7 @@
             }
         },
         series: [{
-            name: 'Omset',
+            name: 'Income',
             data: {!! json_encode($totals) !!}
         }]
     });

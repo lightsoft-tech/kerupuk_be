@@ -74,7 +74,11 @@ class IncomeController extends Controller
             'quantity' => 'required|numeric',
             'date' => 'required|date',
         ]);
-
+        $produk = Produks::find(request('produk_id'));
+        $stockMin = $produk->stock - request('quantity');
+        Produks::select('stock')
+                ->where('id', request('produk_id'))
+                ->update(array('stock' => $stockMin));
         Incomes::create($validate);
 
         return redirect('/admin/incomes');

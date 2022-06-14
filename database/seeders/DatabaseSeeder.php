@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\DescriptionHome;
+use App\Models\Jumbotrons;
+use App\Models\ProdukHome;
+use App\Models\SuggestionHome;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\Seeder;
@@ -25,6 +28,27 @@ class DatabaseSeeder extends Seeder
             Culpa enim assumenda eius illo ipsam? Repellat aperiam ratione error? Corrupti nostrum impedit ipsam eos, minima atque! Sed at, consequatur, dolor sint recusandae harum iusto ratione provident eius qui inventore."
         ]);
 
+        // jumbotron image
+        Jumbotrons::create([
+            'image_description' => 'krupuk_png.png'
+        ]);
+
+        // produk image
+        ProdukHome::create([
+            'image_produk' => 'kerupuk_tenggiri_1.png'
+        ]);
+        ProdukHome::create([
+            'image_produk' => 'kerupuk_tenggiri_2.png'
+        ]);
+        ProdukHome::create([
+            'image_produk' => 'kerupuk_tenggiri_3.png'
+        ]);
+
+        // suggestion image
+
+        SuggestionHome::create([
+            'image_suggestion' => 'kerupuk_gepeng.png'
+        ]);
         Role::create([
             'name' => 'admin',
             'guard_name' => 'web',

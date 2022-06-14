@@ -13,7 +13,29 @@
         @endforeach
       </div>
       <div class="col-md-7">
-        <img src="./images/kerupuk_tenggiri_header.png" class="img-fluid" alt="tenggiri">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @if ($jumbotrons->count())
+                    <div class="carousel-item active">
+                        <img src="{{ asset('upload/home/'. $jumbotrons[0]->image_description) }}" class="d-block" alt="..." width="500" height="500">
+                    </div>
+                @endif
+                @foreach ($jumbotrons->skip(1) as $jumbotron)
+                    <div class="carousel-item">
+                        <img src="{{ asset('upload/home/'. $jumbotron->image_description) }}" class="d-block" alt="..." width="500" height="500">
+                    </div>
+                @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </button>
+          </div>
+        {{-- <img src="./images/kerupuk_tenggiri_header.png" class="img-fluid" alt="tenggiri"> --}}
       </div>
     </div>
 

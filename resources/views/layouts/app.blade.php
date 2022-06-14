@@ -80,9 +80,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                @auth
                                 <a class="dropdown-item" href="profile/{{ Auth::user()->id }}">
                                       <p>Profile</p>
                                 </a>
+                                @endauth
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
