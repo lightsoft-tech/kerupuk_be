@@ -4,8 +4,8 @@
 
 <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-  <div class="d-flex justify-content-between">
-    <div class="btn-group">
+  <div class="d-flex justify-content-end">
+    {{-- <div class="btn-group">
       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         Action
       </button>
@@ -14,7 +14,7 @@
         <a class="dropdown-item" href="#">Another action</a>
         <a class="dropdown-item" href="#">Something else here</a>
       </div>
-    </div>
+    </div> --}}
     <a href="/admin/incomes-create" class="btn-product">
       <div class="mr-2">
         Add

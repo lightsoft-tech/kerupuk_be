@@ -101,22 +101,24 @@ class ProdukController extends Controller
             'price' => 'required',
             'description' => 'required',
             'stock' => 'required',
-            'image' => 'required|image|file',
+            'image' => 'image|file',
         ];
 
         $validateData = $request->validate($rules);
 
         // update image
-        $date = date('H-i-s');
-        $random = \Str::random(5);
-        $produk = Produks::findOrFail($id);
-        $path = public_path("upload/produks/" . $produk->image);
-        try {
-            unlink($path);
-        } catch (\Throwable $th) {
-        } finally {
-            $request->file('image')->move('upload/produks/', $date . $random . $request->file('image')->getClientOriginalName());
-            $validateData['image'] = $date . $random . $request->file('image')->getClientOriginalName();
+        if ($request->image != ''){
+            $date = date('H-i-s');
+            $random = \Str::random(5);
+            $produk = Produks::findOrFail($id);
+            $path = public_path("upload/produks/" . $produk->image);
+            try {
+                unlink($path);
+            } catch (\Throwable $th) {
+            } finally {
+                $request->file('image')->move('upload/produks/', $date . $random . $request->file('image')->getClientOriginalName());
+                $validateData['image'] = $date . $random . $request->file('image')->getClientOriginalName();
+            }
         }
         Produks::where('id', $id)
                 ->update($validateData);

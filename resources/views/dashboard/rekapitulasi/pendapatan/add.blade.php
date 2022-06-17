@@ -52,9 +52,29 @@
               </label>
               <input class="input100" type="number" name="quantity"  placeholder="Stok Produk" id="stok">
             </div>
-
-            <button type="submit" class="btn-product mt-4" style="border: none">Simpan</button>
-
+            {{-- button triger --}}
+            <button type="button" class="btn-product mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Submit
+            </button>
+            {{-- modal --}}
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="d-flex justify-content-center my-4">
+                            <h5>Tambah Data ?</h5>
+                        </div>
+                        <div class="row mx-0">
+                            <div class="col container-fluid d-flex justify-content-center px-0">
+                                <button type="button" class="btn-modal1 fw-bold container-fluid" data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="col container-fluid d-flex justify-content-center px-0">
+                                <button type="submit" class="btn-modal2 fw-bold container-fluid">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
           </form>
         </div>
       </div>

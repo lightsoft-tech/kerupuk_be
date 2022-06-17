@@ -4,7 +4,7 @@
 
 <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-end">
     <div class="btn-group">
       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         Action

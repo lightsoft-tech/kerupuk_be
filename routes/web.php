@@ -42,11 +42,11 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::put('admin/home-description-update/{id}', [App\Http\Controllers\HomeController::class, 'updateDescription']);
     Route::get('admin', [App\Http\Controllers\HomeController::class, 'adminHome']);
     Route::post('admin/home-jumbotron-create', [App\Http\Controllers\HomeController::class, 'createJumbotron']);
-    Route::delete('admin/home-jumbotron-delete/{id}', [App\Http\Controllers\HomeController::class, 'destroyJumbotron']);
+    Route::get('admin/home-jumbotron-delete/{id}', [App\Http\Controllers\HomeController::class, 'destroyJumbotron']);
     Route::post('admin/home-produk-create', [App\Http\Controllers\HomeController::class, 'createProduk']);
-    Route::delete('admin/home-produk-delete/{id}', [App\Http\Controllers\HomeController::class, 'destroyProduk']);
+    Route::get('admin/home-produk-delete/{id}', [App\Http\Controllers\HomeController::class, 'destroyProduk']);
     Route::post('admin/home-suggestion-create', [App\Http\Controllers\HomeController::class, 'createSuggestion']);
-    Route::delete('admin/home-suggestion-delete/{id}', [App\Http\Controllers\HomeController::class, 'destroySuggestion']);
+    Route::get('admin/home-suggestion-delete/{id}', [App\Http\Controllers\HomeController::class, 'destroySuggestion']);
 
 
     Route::get('/admin/grafik', [App\Http\Controllers\GrafikController::class, 'grafik']);

@@ -69,7 +69,7 @@ class HomeController extends Controller
         DescriptionHome::where('id', $id)
                 ->update($validateData);
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'data berhasil diubah');
     }
     // update jumbotron image
     public function createJumbotron(Request $request)
@@ -95,7 +95,7 @@ class HomeController extends Controller
 
         Jumbotrons::create($validateData);
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'data berhasil ditambahkan');
     }
     public function destroyJumbotron($id)
     {
@@ -104,7 +104,7 @@ class HomeController extends Controller
         unlink($path);
         Jumbotrons::destroy($id);
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'data berhasil dihapus');
     }
     // update produk image
     public function createProduk(Request $request)
@@ -129,7 +129,7 @@ class HomeController extends Controller
 
         ProdukHome::create($validateData);
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'data berhasil ditambahkan');
     }
     public function destroyProduk($id)
     {
@@ -138,7 +138,7 @@ class HomeController extends Controller
         unlink($path);
         ProdukHome::destroy($id);
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'data berhasil dihapus');
     }
     // update suggestion image
     public function createSuggestion(Request $request)
@@ -163,7 +163,7 @@ class HomeController extends Controller
 
         SuggestionHome::create($validateData);
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'data berhasil ditambahkan');
     }
     public function destroySuggestion($id)
     {
@@ -172,6 +172,6 @@ class HomeController extends Controller
         unlink($path);
         SuggestionHome::destroy($id);
 
-        return redirect('/admin');
+        return redirect('/admin')->with('success', 'data berhasil dihapus');
     }
 }
