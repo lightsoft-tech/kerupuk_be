@@ -81,7 +81,7 @@ class IncomeController extends Controller
                 ->update(array('stock' => $stockMin));
         Incomes::create($validate);
 
-        return redirect('/admin/incomes');
+        return redirect()->route('income')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -131,7 +131,7 @@ class IncomeController extends Controller
         Incomes::where('id', $id)
             ->update($validateData);
 
-        // return redirect();
+            return redirect()->route('income')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -143,5 +143,7 @@ class IncomeController extends Controller
     public function destroy($id)
     {
         Incomes::destroy($id);
+
+        return redirect()->route('income')->with('success', 'Data berhasil dihapus');
     }
 }

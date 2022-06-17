@@ -186,7 +186,7 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn-product mt-4" style="border: none">Simpan</button>
+            <button type="submit" class="btn-product mt-4" style="border: none">Submit</button>
           </form>
         </div>
       </div>

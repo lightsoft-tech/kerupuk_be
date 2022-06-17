@@ -15,6 +15,9 @@
     <script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 
+    {{-- script sweetalert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -81,7 +84,7 @@
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 @auth
-                                <a class="dropdown-item" href="profile/{{ Auth::user()->id }}">
+                                <a class="dropdown-item" href="profile-show/{{ Auth::user()->id }}">
                                       <p>Profile</p>
                                 </a>
                                 @endauth

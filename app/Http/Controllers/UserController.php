@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function show($id)
+    {
+        $user = User::find($id);
+
+        return view('profile-detail', compact('user'));
+    }
     public function edit($id)
     {
         $user = User::find($id);
@@ -30,5 +36,13 @@ class UserController extends Controller
                 ->update($validateData);
 
         return redirect('/home');
+    }
+    public function customer()
+    {
+        $user = User::latest();
+
+        return view('customer', [
+            'users' => $user->get()
+        ]);
     }
 }

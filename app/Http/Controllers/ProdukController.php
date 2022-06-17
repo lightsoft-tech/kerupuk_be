@@ -61,7 +61,7 @@ class ProdukController extends Controller
         }
         Produks::create($validate);
 
-        return redirect('/admin/produk');
+        return redirect()->route('produk')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -116,12 +116,12 @@ class ProdukController extends Controller
         } catch (\Throwable $th) {
         } finally {
             $request->file('image')->move('upload/produks/', $date . $random . $request->file('image')->getClientOriginalName());
-            $rules['image'] = $date . $random . $request->file('image')->getClientOriginalName();
+            $validateData['image'] = $date . $random . $request->file('image')->getClientOriginalName();
         }
         Produks::where('id', $id)
                 ->update($validateData);
 
-        return redirect('/admin/produk');
+        return redirect()->route('produk')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -137,7 +137,7 @@ class ProdukController extends Controller
         unlink($path);
         Produks::destroy($id);
 
-        return redirect('/admin/produk');
+        return redirect()->route('produk')->with('success', 'Data berhasil dihapus');
     }
 
     public function indexproduk()

@@ -48,7 +48,7 @@ class ExpenditureController extends Controller
 
         Expenditures::create($validate);
 
-        return redirect('/admin/expenditures');
+        return redirect()->route('expenditure')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -95,7 +95,7 @@ class ExpenditureController extends Controller
         Expenditures::where('id', $id)
             ->update($validateData);
 
-        // return redirect();
+            return redirect()->route('expenditure')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -108,6 +108,6 @@ class ExpenditureController extends Controller
     {
         Expenditures::destroy($id);
 
-        return redirect('/admin/expenditures');
+        return redirect()->route('expenditure')->with('success', 'Data berhasil dihapus');
     }
 }

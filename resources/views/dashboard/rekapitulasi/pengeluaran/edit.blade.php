@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card-body">
-          <form method="POST" action="/admin/expenditures-update{{ $expenditure->id }}}">
+          <form method="POST" action="/admin/expenditures-update/{{ $expenditure->id }}}">
             @method('put')
             @csrf
 
@@ -39,9 +39,7 @@
               </label>
               <input class="input100" type="number" name="cost" value="{{ $expenditure->cost }}"  placeholder="Biaya" id="biaya">
             </div>
-
             <button type="submit" class="btn-product mt-4" style="border: none">Simpan</button>
-
           </form>
         </div>
       </div>

@@ -48,13 +48,12 @@
 
         <div class="my-3 mx-auto">
           <h5 class="text-center">
-            Ahmad Baihaqi
-            (customer)
+            {{ $user->name }}
           </h5>
         </div>
 
         <div class="wrap-input100 validate-input">
-            <input class="input100 @error('name') is-invalid @enderror" type="text" name="name" value="{{ $user->name }}" placeholder="Nama lengkap">
+            <input class="input100 @error('name') is-invalid @enderror" type="text" name="name" value="{{ $user->name }}" disabled placeholder="Nama lengkap">
             @error('name')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -62,7 +61,7 @@
             @enderror
         </div>
         <div class="wrap-input100 validate-input">
-            <input class="input100 @error('address') is-invalid @enderror" type="text" name="address" value="{{ $user->address }}" placeholder="Alamat">
+            <input class="input100 @error('address') is-invalid @enderror" type="text" name="address" value="{{ $user->address }}" disabled placeholder="Alamat">
             @error('address')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -70,7 +69,7 @@
             @enderror
         </div>
         <div class="wrap-input100 validate-input">
-            <input class="input100 @error('email') is-invalid @enderror" type="email" name="email" value="{{ $user->email }}" placeholder="Email">
+            <input class="input100 @error('email') is-invalid @enderror" type="email" name="email" value="{{ $user->email }}" disabled placeholder="Email">
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -78,7 +77,7 @@
             @enderror
         </div>
         <div class="wrap-input100 validate-input">
-            <input class="input100 @error('phone_number') is-invalid @enderror" type="number" name="phone_number" value="{{ $user->phone_number }}" placeholder="Nomor HP">
+            <input class="input100 @error('phone_number') is-invalid @enderror" type="number" name="phone_number" value="{{ $user->phone_number }}" disabled placeholder="Nomor HP">
             @error('phone_number')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -86,24 +85,19 @@
             @enderror
         </div>
         <div class="wrap-input100 validate-input">
-            <input class="input100 @error('birthday') is-invalid @enderror" type="date" name="birthday" value="{{ $user->birthday }}" placeholder="Tanggal lahir">
+            <input class="input100 @error('birthday') is-invalid @enderror" type="date" name="birthday" value="{{ $user->birthday }}" disabled placeholder="Tanggal lahir">
             @error('birthday')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
         </div>
-        <div class="wrap-input100 validate-input">
-          <input class="input100" type="password" name="password" placeholder="Password">
-        </div>
-        <div class="wrap-input100 validate-input">
-            <input class="input100" type="password" name="password_confirmation" placeholder="Password_confirmation">
-          </div>
 
         <div class="container-login100-form-btn">
-          <button type="submit" class="login100-form-btn">
+          {{-- <button type="submit" class="login100-form-btn">
             Simpan
-          </button>
+          </button> --}}
+          <a href="/profile-edit/{{ $user->id }}" class="login100-form-btn">Edit</a>
         </div>
       </form>
     </div>

@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin akun',
             'email' => 'admin@gmail.com',
             'birthday' => Carbon::create('2000', '01', '01'),
-            'phone_number' => '-',
+            'phone_number' => '000',
             'address' => '-',
             'password' => bcrypt('admin123'),
             'created_at' => now(),

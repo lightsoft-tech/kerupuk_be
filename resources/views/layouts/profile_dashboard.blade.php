@@ -118,34 +118,19 @@
             <div class="position-sticky pt-3">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/admin">
+                  <a class="nav-link active" aria-current="page" href="/profile-show/{{ Auth::user()->id }}">
                     <span data-feather="home" class="align-text-bottom"></span>
-                    Edit Homepage
+                    profile
                   </a>
                 </li>
+                @hasrole('admin')
                 <li class="nav-item">
-                  <a class="nav-link" href="/admin/produk">
+                  <a class="nav-link" href="/customer">
                     <span data-feather="file" class="align-text-bottom"></span>
-                    Produk
+                    Customer
                   </a>
                 </li>
-                <li class="nav-item">
-                  <button style="border: none; background: transparent" class="nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                    Rekapitulasi
-                  </button>
-
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="nav-link" style="color: var(--primary) !important" href="/admin/incomes">Pendapatan</a>
-                    <a class="nav-link" style="color: var(--primary) !important" href="/admin/expenditures">Pengeluaran</a>
-                  </div>
-
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/admin/grafik">
-                    <span data-feather="users" class="align-text-bottom"></span>
-                    Grafik Profit
-                  </a>
-                </li>
+                @endhasrole
               </ul>
             </div>
           </nav>
